@@ -6,18 +6,16 @@ pipeline {
     stages {
         stage("build") {
             steps {
+                echo "Working Directory:"
+                sh 'pwd && ls -l'
                 sh 'mvn -v'
-            }
-        }
-        stage("test") {
-            steps {
-                echo 'Running tests'
             }
         }
         stage("Build & Analyse avec SonarQube") {
             steps {
                 script {
-                    sh 'mvn clean package sonar:sonar'
+                    // Ajoutez le chemin correct si nécessaire
+                    sh 'mvn -f pom.xml clean package sonar:sonar'
                 }
             }
         }
