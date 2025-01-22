@@ -5,7 +5,7 @@ pipeline {
     }
     environment {
         SONAR_HOST_URL = 'http://172.17.0.3:9000'
-        SONAR_TOKEN = credentials('sqa_5decfdda42e256676b49419a5538d6e47d3cdc84') // Jeton sécurisé dans Jenkins
+        SONAR_TOKEN = credentials('sqa_81452abf552c5c176c1390771264634377adb38e') // Jeton sécurisé dans Jenkins
     }
     stages {
         stage("build") {
