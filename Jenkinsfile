@@ -4,7 +4,8 @@ pipeline {
         maven 'Maven'
     }
     environment {
-        SONAR_HOST_URL = 'http://172.17.0.3:9000' // Remplacez par l'URL correcte
+        SONAR_HOST_URL = 'http://172.17.0.3:9000'
+        SONAR_TOKEN = credentials('sqa_5decfdda42e256676b49419a5538d6e47d3cdc84') // Jeton sécurisé dans Jenkins
     }
     stages {
         stage("build") {
@@ -15,7 +16,7 @@ pipeline {
         stage("Build & Analyse avec SonarQube") {
             steps {
                 script {
-                    sh 'mvn clean package sonar:sonar -Dsonar.host.url=$SONAR_HOST_URL'
+                    sh 'mvn clean package sonar:sonar -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.token=$SONAR_TOKEN'
                 }
             }
         }
