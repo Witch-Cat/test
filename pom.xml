@@ -20,7 +20,7 @@
         <!-- Configuration pour SonarQube -->
         <sonar.projectKey>sonar</sonar.projectKey> <!-- Clé de projet SonarQube -->
         <sonar.host.url>http://172.17.0.3:9000</sonar.host.url> <!-- URL du serveur SonarQube -->
-        <sonar.sources>src/main/java,src/test/java</sonar.sources> <!-- Dossiers à analyser -->
+        <sonar.sources>2024/*</sonar.sources> <!-- Dossiers à analyser -->
     </properties>
 
     <repositories>
