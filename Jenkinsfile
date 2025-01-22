@@ -1,11 +1,11 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven 3.8.1'  // Use the actual name of the Maven installation in Jenkins
+        maven 'Maven'  // Use the default 'Maven' tool configured in Jenkins
     }
 
     environment {
-        SONARQUBE = 'SonarQube'  // Ensure this matches the name of the SonarQube server configuration in Jenkins
+        SONARQUBE = 'SonarQube'  // Ensure this matches your SonarQube configuration in Jenkins
     }
 
     stages {
@@ -23,7 +23,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                def mvn = tool 'Maven 3.8.1'  // Replace with your Maven version name
+                def mvn = tool 'Maven'  // Use the default 'Maven' tool
                 withSonarQubeEnv(SONARQUBE) {
                     sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=test -Dsonar.projectName='test'"
                 }
